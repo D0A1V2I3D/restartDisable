@@ -1,0 +1,23 @@
+name: RestartQueue
+version: '${project.version}'
+main: the.david.restartqueue.Restartqueue
+api-version: 1.19
+prefix: RQ
+authors: [ itIsMeDavid,enp4s0 ]
+description: add levers to be turned off before restart
+commands:
+  rq:
+    description: Add a lever to restart queue
+    usage: Corect usage /<command> add/remove/list <name>
+#    permission: restartqueue.useQueue
+  rqoff:
+    description: Turns off all the levers
+    usage: Corect usage /<command>
+#    permission: restartqueue.forceQueue
+  rqon:
+    description: Turns levers back on if they were off
+    usage: Corect usage /<command>
+#    permission: restartqueue.forceQueue
+  rqhelp:
+    description: Help command for all rq (restart queue) commands
+    usage: Corect usage /<command>
