@@ -3,7 +3,7 @@ version: '${project.version}'
 main: the.david.restartqueue.Restartqueue
 api-version: 1.19
 prefix: RQ
-authors: [ itIsMeDavid,enp4s0 ]
+authors: [ itIsMeDavid ]
 description: add levers to be turned off before restart
 commands:
   rq:

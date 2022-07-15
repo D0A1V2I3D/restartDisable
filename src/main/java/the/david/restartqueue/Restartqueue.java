@@ -6,8 +6,6 @@ import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.Powerable;
-import org.bukkit.material.Lever;
-import org.bukkit.material.MaterialData;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,7 +14,6 @@ import the.david.restartqueue.db.LeverStoradge;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public final class Restartqueue extends JavaPlugin {
     public static LeverStoradge storadge = new LeverStoradge();

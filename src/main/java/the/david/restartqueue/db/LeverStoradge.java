@@ -1,7 +1,6 @@
 package the.david.restartqueue.db;
 
 import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -15,7 +14,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class LeverStoradge {
     private File file;

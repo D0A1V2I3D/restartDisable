@@ -10,7 +10,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import the.david.restartqueue.Restartqueue;
 
-import java.util.Iterator;
 import java.util.UUID;
 
 public class CommandRQ implements CommandExecutor {
