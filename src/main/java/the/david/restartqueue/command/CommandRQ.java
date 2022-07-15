@@ -17,6 +17,7 @@ public class CommandRQ implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1){
             Player player = (Player) sender;
+            //rq list
             if (args[0].equalsIgnoreCase("list")) {
                 JSONArray json = Restartqueue.storadge.getArrayFromFile();
                 for (Object o : json) {
@@ -32,6 +33,7 @@ public class CommandRQ implements CommandExecutor {
         }
         if (sender instanceof Player) {
             Player player = (Player) sender;
+            //rq add
             if (args[0].equalsIgnoreCase("add")) {
                 Block block = player.getTargetBlock(null, 5);
                 if (block.getType() == Material.LEVER) {
@@ -41,6 +43,7 @@ public class CommandRQ implements CommandExecutor {
                     return false;
                 }
                 return true;
+                //rq remove
             } else if (args[0].equalsIgnoreCase("remove")) {
                 JSONArray json = Restartqueue.storadge.getArrayFromFile();
                 for (Object o : json) {
@@ -56,6 +59,7 @@ public class CommandRQ implements CommandExecutor {
                 return false;
             }
         }
+        // if incorect numbers of arguments or somethink else bad happenes let paper automaticly say corect usage to user
         return false;
     }
 }
