@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 public class CommandHelp implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        //final (sortof)
         Player player = (Player) sender;
         player.sendMessage("This plugin allowes you to make levers be turned off before a restart, and back on after a restart, so that your farm doesnt break.");
         player.sendMessage("To use it look at a lever and run /rq add, this will save the lever. To remove it look at the block again and run /rq remove");

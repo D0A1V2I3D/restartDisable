@@ -8,6 +8,7 @@ import the.david.restartqueue.Restartqueue;
 public class CommandRQOn implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        //final
         Restartqueue.leversOn();
         return true;
     }

@@ -16,9 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class Restartqueue extends JavaPlugin {
+    //init storadge and make it accesible in other classes
     public static LeverStoradge storadge = new LeverStoradge();
     @Override
     public void onEnable() {
+        //init commands and tab completors
         this.getCommand("rq").setExecutor(new CommandRQ());
         this.getCommand("rq").setTabCompleter(new ConstructTabCompleter());
         this.getCommand("rqoff").setExecutor(new CommandRQOff());
@@ -28,6 +30,7 @@ public final class Restartqueue extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        //TODO decide if we want to add shutdown hook that stops farms before restart
     }
 
     public static void leversOff() {

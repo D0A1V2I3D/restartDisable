@@ -5,6 +5,7 @@ api-version: 1.19
 prefix: RQ
 authors: [ itIsMeDavid ]
 description: add levers to be turned off before restart
+#TODO before release change permissions
 commands:
   rq:
     description: Add a lever to restart queue
