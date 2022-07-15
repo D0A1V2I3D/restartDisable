@@ -14,11 +14,11 @@ commands:
   rqoff:
     description: Turns off all the levers
     usage: Corect usage /<command>
-#    permission: restartqueue.forceQueue
+    permission: restartqueue.forceQueue
   rqon:
     description: Turns levers back on if they were off
     usage: Corect usage /<command>
-#    permission: restartqueue.forceQueue
+    permission: restartqueue.forceQueue
   rqhelp:
     description: Help command for all rq (restart queue) commands
     usage: Corect usage /<command>
