@@ -26,6 +26,8 @@ public final class Restartqueue extends JavaPlugin {
         this.getCommand("rqoff").setExecutor(new CommandRQOff());
         this.getCommand("rqon").setExecutor(new CommandRQOn());
         this.getCommand("rqhelp").setExecutor(new CommandHelp());
+        this.getCommand("rqa").setExecutor(new CommandRQA());
+        this.getCommand("rqa").setTabCompleter(new ConstructTabCompleterRQA());
     }
 
     @Override
