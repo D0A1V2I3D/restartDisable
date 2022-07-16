@@ -7,7 +7,9 @@ import the.david.restartqueue.Restartqueue;
 
 public class CommandRQOff implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        //final
+        if (args.length == 1 && args[0].equalsIgnoreCase("force")) {
+            Restartqueue.leversOff(true);
+        }
         Restartqueue.leversOff();
         return true;
     }
