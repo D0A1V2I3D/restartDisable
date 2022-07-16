@@ -56,6 +56,7 @@ public final class Restartqueue extends JavaPlugin {
             if (data instanceof Powerable) {
                 Powerable powerable = (Powerable) data;
                 if (powerable.isPowered()) {
+                    block.getChunk().load();
                     ((Powerable) data).setPowered(false);
                     block.setBlockData(data);
                     obj.remove("todo");
@@ -91,6 +92,7 @@ public final class Restartqueue extends JavaPlugin {
                 Powerable powerable = (Powerable) data;
                 if (!powerable.isPowered()) {
                     if (obj.get("todo").toString().equalsIgnoreCase("1")) {
+                        block.getChunk().load();
                         ((Powerable) data).setPowered(true);
                         block.setBlockData(data);
                         obj.remove("todo");
