@@ -6,7 +6,7 @@
 
     <groupId>the.david.restartqueue</groupId>
     <artifactId>restartqueue</artifactId>
-    <version>0.2</version>
+    <version>0.4</version>
     <packaging>jar</packaging>
 
     <name>RestartQueue</name>

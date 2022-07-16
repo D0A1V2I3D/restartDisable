@@ -21,12 +21,13 @@ public class ConstructTabCompleter implements TabCompleter {
             list.add("add");
             list.add("remove");
             list.add("list");
-        } else if (args.length == 2 && args[0].equalsIgnoreCase("remove")) {
+            list.add("location");
+        } else if (args.length == 2 && (args[0].equalsIgnoreCase("remove")) || args[0].equalsIgnoreCase("location")) {
             JSONArray json = Restartqueue.storadge.getArrayFromFile();
             for (Object o : json) {
                 JSONObject obj = (JSONObject) o;
-                if (player.getUniqueId().toString().equalsIgnoreCase((String) obj.get("creator"))) {
-                    list.add((String) obj.get("name"));
+                if (player.getUniqueId().toString().equalsIgnoreCase(obj.get("creator").toString())) {
+                    list.add(obj.get("name").toString());
                 }
             }
         }

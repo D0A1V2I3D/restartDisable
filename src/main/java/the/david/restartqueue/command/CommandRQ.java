@@ -10,6 +10,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import the.david.restartqueue.Restartqueue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class CommandRQ implements CommandExecutor {
@@ -36,6 +38,7 @@ public class CommandRQ implements CommandExecutor {
             //rq add
             if (args[0].equalsIgnoreCase("add")) {
                 Block block = player.getTargetBlock(null, 5);
+
                 if (block.getType() == Material.LEVER) {
                     UUID uuid = player.getUniqueId();
                     Restartqueue.storadge.addLever(block, args[1], uuid.toString());
@@ -57,6 +60,22 @@ public class CommandRQ implements CommandExecutor {
                     }
                 }
                 return false;
+            } else if (args[0].equalsIgnoreCase("location")) {
+                JSONArray json = Restartqueue.storadge.getArrayFromFile();
+                for (Object o : json) {
+                    JSONObject obj = (JSONObject) o;
+                    if (player.getUniqueId().toString().equalsIgnoreCase(obj.get("creator").toString())) {
+                        if (args[1].equalsIgnoreCase(obj.get("name").toString())) {
+                            List<String> location = new ArrayList<>();
+                            JSONArray loc = (JSONArray) obj.get("location");
+                            for (int i = 0;i<3; i++) {
+                                location.add(loc.get(i).toString());
+                            }
+                            player.sendMessage("XYZ: " + location.get(0) + " " + location.get(1) + " " + location.get(2));
+                            return true;
+                        }
+                    }
+                }
             }
         }
         // if incorect numbers of arguments or somethink else bad happenes let paper automaticly say corect usage to user
