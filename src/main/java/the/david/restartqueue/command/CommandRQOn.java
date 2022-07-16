@@ -6,7 +6,6 @@ import org.bukkit.command.CommandSender;
 import the.david.restartqueue.Restartqueue;
 
 public class CommandRQOn implements CommandExecutor {
-    @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Restartqueue.leversOn();
         return true;
