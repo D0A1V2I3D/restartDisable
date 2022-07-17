@@ -10,7 +10,7 @@ public class CommandRQOff implements CommandExecutor {
         if (args.length == 1 && args[0].equalsIgnoreCase("force")) {
             Restartqueue.leversOff(true);
         }
-        Restartqueue.leversOff();
+        Restartqueue.leversOff(false);
         return true;
     }
 }

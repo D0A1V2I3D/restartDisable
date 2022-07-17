@@ -25,7 +25,12 @@ public class CommandRQ implements CommandExecutor {
                 for (Object o : json) {
                     JSONObject obj = (JSONObject) o;
                     if (player.getUniqueId().toString().equalsIgnoreCase(obj.get("creator").toString())) {
-                        player.sendMessage("Name: " + obj.get("name").toString());
+                        List<String> location = new ArrayList<>();
+                        JSONArray loc = (JSONArray) obj.get("location");
+                        for (int i = 0;i<3; i++) {
+                            location.add(loc.get(i).toString());
+                        }
+                        player.sendMessage("Name: " + obj.get("name").toString() + " XYZ: " + location.get(0) + ", " + location.get(1) + ", " + location.get(2));
                     }
                 }
                 return true;
