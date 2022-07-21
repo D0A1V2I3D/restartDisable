@@ -50,6 +50,7 @@ public class LeverStoradge {
             System.out.println("Critical errors occurred when trying to read levers.json");
             e.printStackTrace();
         }
+        updateLeversJson();
     }
 
     public void addLever(Block lever, String name, String uuid) {
