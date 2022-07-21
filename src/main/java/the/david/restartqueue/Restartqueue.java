@@ -98,6 +98,8 @@ public final class Restartqueue extends JavaPlugin {
                         block.getChunk().load();
                         ((Powerable) data).setPowered(true);
                         block.setBlockData(data);
+                        block.getState().update();
+                        Utils.updateBlocks(block);
                         obj.remove("todo");
                         obj.put("todo", 0);
                         toRemove.add(o);

