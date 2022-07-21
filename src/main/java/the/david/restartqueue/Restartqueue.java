@@ -35,42 +35,6 @@ public final class Restartqueue extends JavaPlugin {
         //TODO decide if we want to add shutdown hook that stops farms before restart
     }
 
-//    public static void leversOff() {
-//        JSONArray json = storadge.getArrayFromFile();
-//        List<Object> toRemove = new ArrayList<>();
-//        List<JSONObject> toAdd = new ArrayList<>();
-//        for (Object o : json) {
-//            JSONObject obj = (JSONObject) o;
-//            World world = Bukkit.getWorld(obj.get("world_name").toString());
-//            JSONArray loc = (JSONArray) obj.get("location");
-//            List<String> location = new ArrayList<>();
-//            for (int i = 0;i<3; i++) {
-//                location.add(loc.get(i).toString());
-//            }
-//            Block block = world.getBlockAt(Integer.parseInt(location.get(0)), Integer.parseInt(location.get(1)), Integer.parseInt(location.get(2)));
-//            if (block.getType() != Material.LEVER) {
-//                toRemove.add(o);
-//                continue;
-//            }
-//            BlockData data = block.getBlockData();
-//            if (data instanceof Powerable) {
-//                Powerable powerable = (Powerable) data;
-//                if (powerable.isPowered()) {
-//                    block.getChunk().load();
-//                    ((Powerable) data).setPowered(false);
-//                    block.setBlockData(data);
-//                    obj.remove("todo");
-//                    obj.put("todo", 1);
-//                    toRemove.add(o);
-//                    toAdd.add(obj);
-//                }
-//            }
-//        }
-//        json.removeAll(toRemove);
-//        json.addAll(toAdd);
-//        storadge.writeFile(json);
-//    }
-
     public static void leversOff(boolean shouldIgnorerqon) {
         JSONArray json = storadge.getArrayFromFile();
         List<Object> toRemove = new ArrayList<>();
@@ -94,6 +58,8 @@ public final class Restartqueue extends JavaPlugin {
                 if (powerable.isPowered()) {
                     ((Powerable) data).setPowered(false);
                     block.setBlockData(data);
+                    block.getState().update();
+                    Utils.updateBlocks(block);
                     if (!shouldIgnorerqon) {
                         obj.remove("todo");
                         obj.put("todo", 1);

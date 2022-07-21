@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import the.david.restartqueue.Restartqueue;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class ConstructTabCompleter implements TabCompleter {
